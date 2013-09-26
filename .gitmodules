@@ -1,0 +1,12 @@
+[submodule ".emacs.d/ggtags"]
+	path = .emacs.d/ggtags
+	url = https://github.com/leoliu/ggtags.git
+[submodule ".emacs.d/php-mode"]
+	path = .emacs.d/php-mode
+	url = git@github.com:ejmr/php-mode.git
+[submodule "electric"]
+	path = electric
+	url = https://github.com/edwinallenz/php-electric.el.git
+[submodule ".emacs.d/electric"]
+	path = .emacs.d/electric
+	url = https://github.com/edwinallenz/php-electric.el.git
