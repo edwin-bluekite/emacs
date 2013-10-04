@@ -1,3 +1,9 @@
+(load-theme 'wombat t)
+
+;; Hide splash-screen and startup-message
+(setq inhibit-splash-screen -1)
+(setq inhibit-startup-message -1)
+
 (let ((default-directory "/opt/emacs/.emacs.d/"))
   (normal-top-level-add-subdirs-to-load-path))
 ;;Enable ido mode
@@ -28,3 +34,14 @@
   (let ((file (ido-completing-read "Choose recent file: " recentf-list nil t)))
     (when file
       (find-file file))))
+
+(defun toggle-bars ()
+  "Toggles bars visibility."
+  (interactive)
+  (menu-bar-mode)
+  (tool-bar-mode)
+  (scroll-bar-mode))
+
+(global-set-key [f11] 'toggle-bars)
+(toggle-bars)
+(menu-bar-mode -1)
