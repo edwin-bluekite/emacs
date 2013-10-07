@@ -10,3 +10,6 @@
 [submodule ".emacs.d/electric"]
 	path = .emacs.d/electric
 	url = https://github.com/edwinallenz/php-electric.el.git
+[submodule ".emacs.d/w3m"]
+	path = .emacs.d/w3m
+	url = https://github.com/emacsmirror/w3m

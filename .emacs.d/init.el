@@ -4,7 +4,7 @@
 (setq inhibit-splash-screen -1)
 (setq inhibit-startup-message -1)
 
-(let ((default-directory "/opt/emacs/.emacs.d/"))
+(let ((default-directory "~/.emacs.d/"))
   (normal-top-level-add-subdirs-to-load-path))
 ;;Enable ido mode
 (ido-mode t)
@@ -20,8 +20,8 @@
 	    (modify-syntax-entry ?\$ "_" php-mode-syntax-table)
 	    (ggtags-mode t)
 	    (subword-mode t)
+	    (require 'php-electric)
 	    ))
-(require 'php-electric)
 
 ;; enable recent mode
 (recentf-mode t)
@@ -35,13 +35,16 @@
     (when file
       (find-file file))))
 
-(defun toggle-bars ()
+(defun disable-bars ()
   "Toggles bars visibility."
   (interactive)
-  (menu-bar-mode)
-  (tool-bar-mode)
-  (scroll-bar-mode))
+  (menu-bar-mode -1)
+  (tool-bar-mode -1)
+  (scroll-bar-mode -1))
 
 (global-set-key [f11] 'toggle-bars)
-(toggle-bars)
-(menu-bar-mode -1)
+(disable-bars)
+
+;; w3m
+(require 'w3m-load)
+(setq w3m-use-cookies t)
