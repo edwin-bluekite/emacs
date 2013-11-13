@@ -48,3 +48,10 @@
 ;; w3m
 (require 'w3m-load)
 (setq w3m-use-cookies t)
+
+;;puppet module
+(autoload 'puppet-mode "puppet-mode" "Major mode for editing puppet manifests")
+(add-to-list 'auto-mode-alist '("\\.pp$" . puppet-mode))
+
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
