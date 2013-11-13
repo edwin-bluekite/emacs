@@ -13,6 +13,10 @@
 [submodule ".emacs.d/w3m"]
 	path = .emacs.d/w3m
 	url = https://github.com/emacsmirror/w3m
+[submodule ".emacs.d/markdown"]
+	path = .emacs.d/markdown
+	url = git://jblevins.org/git/markdown-mode.git
 [submodule ".emacs.d/puppet"]
 	path = .emacs.d/puppet
 	url = https://github.com/puppetlabs/puppet-syntax-emacs
+
