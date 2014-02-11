@@ -1,5 +1,6 @@
 (load-theme 'wombat t)
-
+;; No backup files
+(setq make-backup-files nil)
 ;; Hide splash-screen and startup-message
 (setq inhibit-splash-screen -1)
 (setq inhibit-startup-message -1)
@@ -63,3 +64,16 @@
 
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+
+(require 'feature-mode)
+(add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
+
+(require 'slim-mode)
+(add-to-list 'auto-mode-alist '("\\.js.emblem$" . slim-mode))
+(add-to-list 'auto-mode-alist '("\\.emblem$" . slim-mode))
+
+(add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
+
+(require 'coffee-mode)
+(add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
+

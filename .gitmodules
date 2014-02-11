@@ -3,7 +3,7 @@
 	url = https://github.com/leoliu/ggtags.git
 [submodule ".emacs.d/php-mode"]
 	path = .emacs.d/php-mode
-	url = git@github.com:ejmr/php-mode.git
+	url = http://github.com/ejmr/php-mode.git
 [submodule "electric"]
 	path = electric
 	url = https://github.com/edwinallenz/php-electric.el.git
@@ -20,3 +20,6 @@
 	path = .emacs.d/puppet
 	url = https://github.com/puppetlabs/puppet-syntax-emacs
 
+[submodule ".emacs.d/cucumber"]
+	path = .emacs.d/cucumber
+	url = git@github.com:michaelklishin/cucumber.el.git
