@@ -23,3 +23,6 @@
 [submodule ".emacs.d/cucumber"]
 	path = .emacs.d/cucumber
 	url = git@github.com:michaelklishin/cucumber.el.git
+[submodule ".emacs.d/autopair"]
+	path = .emacs.d/autopair
+	url = https://github.com/capitaomorte/autopair

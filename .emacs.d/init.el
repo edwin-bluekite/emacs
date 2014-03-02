@@ -28,6 +28,7 @@
 (recentf-mode t)
 (setq recentf-max-menu-items 25)
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
+(subword-mode t)
 
 (defun recentf-ido-find-file ()
   "Find a recent file using Ido."
@@ -77,3 +78,12 @@
 (require 'coffee-mode)
 (add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
 
+(require 'erc)
+(setq erc-autojoin-channels-alist
+          '(("freenode.net" "#emacs" "#hapi" "#emberjs", "#boomgt 502!!!", "#stgt-chat")))
+(setq erc-echo-notices-in-minibuffer-flag t)
+(erc :server "irc.freenode.net" :port 6667 :nick "edwinallenz")
+
+;;auto pair
+(require 'autopair)
+(autopair-global-mode) ;; enable autopair in all 
