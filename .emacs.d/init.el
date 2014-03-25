@@ -27,15 +27,45 @@
 ;; enable recent mode
 (recentf-mode t)
 (setq recentf-max-menu-items 25)
-(global-set-key "\C-x\ \C-r" 'recentf-open-files)
-(subword-mode t)
+(load-theme 'wombat t)
+;; No backup files
+(setq make-backup-files nil)
+;; Hide splash-screen and startup-message
+(setq inhibit-splash-screen -1)
+(setq inhibit-startup-message -1)
 
-(defun recentf-ido-find-file ()
-  "Find a recent file using Ido."
+(let ((default-directory "~/.emacs.d/"))
+  (normal-top-level-add-subdirs-to-load-path))
+;;Enable ido mode
+(ido-mode t)
+;;Gtags mode
+(require 'ggtags)
+
+
+;; PHP mode
+(require 'php-mode)
+;;Use $ as a word
+(add-hook 'php-mode-hook
+	  (lambda () 
+	    (modify-syntax-entry ?\$ "_" php-mode-syntax-table)
+	    (ggtags-mode t)
+	    (subword-mode t)
+	    (require 'php-electric)
+	    ))
+
+;; enable recent mode
+(recentf-mode t)
+(setq recentf-max-menu-items   )
+(global-set-key (kbd "C-x C-r") 'ido-recentf-open)
+
+
+(subword-mode t)
+(defun ido-recentf-open ()
+  "Use `ido-completing-read' to \\[find-file] a recent file"
   (interactive)
-  (let ((file (ido-completing-read "Choose recent file: " recentf-list nil t)))
-    (when file
-      (find-file file))))
+  (if (find-file (ido-completing-read "Find recent file: " recentf-list))
+      (message "Opening file...")
+    (message "Aborting")))
 
 (defun disable-bars ()
   "Toggles bars visibility."
@@ -80,10 +110,30 @@
 
 (require 'erc)
 (setq erc-autojoin-channels-alist
-          '(("freenode.net" "#emacs" "#hapi" "#emberjs", "#boomgt 502!!!", "#stgt-chat")))
+          '(("freenode.net" "#emacs" "#hapi" "#emberjs", "#boomgt ", "#stgt-chat")))
 (setq erc-echo-notices-in-minibuffer-flag t)
 (erc :server "irc.freenode.net" :port 6667 :nick "edwinallenz")
 
 ;;auto pair
 (require 'autopair)
 (autopair-global-mode) ;; enable autopair in all 
+
+;Kill buffer withourmessage prompt
+(defun kill-this-buffer () 
+  (interactive) 
+  (kill-buffer (current-buffer)))
+
+(global-set-key [f1] 'eshell)
+;; Clears out annoying erc-track-mode stuff for when we don't care.
+;; Useful for when ChanServ restarts :P
+(defun reset-erc-track-mode ()
+  (interactive)
+  (setq erc-modified-channels-alist nil)
+  (erc-modified-channels-update))
+(global-set-key (kbd "C-c r") 'reset-erc-track-mode)
+
+;;Resize window keys
+(global-set-key (kbd "S-C-<left>") 'shrink-window-horizontally)
+(global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
+(global-set-key (kbd "S-C-<down>") 'shrink-window)
+(global-set-key (kbd "S-C-<up>") 'enlarge-window)
